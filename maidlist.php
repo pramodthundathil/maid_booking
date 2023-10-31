@@ -43,49 +43,34 @@
 <body>
     <?php include 'components/headder.php'?>
     <div class="container mt-5">
-        <div class="maidcontainer">
-            <div class="maid-card">
-                <h5>Cooking</h5>
-                <p><span style="font-size:10px;">Company:</span> betainfotech</p>
-                <p>Service name</p>
+    <h3 class="text-info text-center">All Services You Can Find Here</h3>
 
-                <span >Hourly Rate:</span><span style="color:green"> ₹</span>
-                <br>
-                <br>
-                <span>Monthly Rate:</span><span style="color:green"> ₹</span>
+        <div class="maidcontainer mt-3">
+        <?php include ('dbconnection.php'); ?>
 
-                <br><br>
-                <a href="" class="btn btn-warning btn-full">Book Now</a>
-                
-            </div>
-            <div class="maid-card">
-                <h5>Cooking</h5>
-                <p><span style="font-size:10px;">Company:</span> betainfotech</p>
-                <p>Service name</p>
+        <?php 
+                    $maids = "SELECT * FROM maid";
+                    $rs = $conn->query($maids);
+						    while($rws = $rs->fetch_assoc()){
+        ?>
+            <div class="maid-card mt-4">
+                <h5><?php echo $rws['Service']?></h5>
+                <p><span style="font-size:10px;">Company: </span> <?php echo $rws['Company_name']?></p>
+                <p><?php echo $rws['Service_Name']?></p>
 
-                <span >Hourly Rate:</span><span style="color:green"> ₹</span>
+                <span >Hourly Rate:</span><span style="color:green"> ₹<?php echo $rws['Hourlyrate']?></span>
                 <br>
                 <br>
-                <span>Monthly Rate:</span><span style="color:green"> ₹</span>
+                <span>Monthly Rate:</span><span style="color:green"> ₹<?php echo $rws['monthlyrate']?></span>
 
                 <br><br>
-                <a href="" class="btn btn-warning btn-full">Book Now</a>
+                <a href="booking.php?id=<?php echo $rws['id']?>" class="btn btn-warning btn-full">Book Now</a>
                 
             </div>
-            <div class="maid-card">
-                <h5>Cooking</h5>
-                <p><span style="font-size:10px;">Company:</span> betainfotech</p>
-                <p>Service name</p>
-
-                <span >Hourly Rate:</span><span style="color:green"> ₹</span>
-                <br>
-                <br>
-                <span>Monthly Rate:</span><span style="color:green"> ₹</span>
-
-                <br><br>
-                <a href="" class="btn btn-warning btn-full">Book Now</a>
-                
-            </div>
+            <?php
+            }
+            ?>
+            
         </div>
     </div>
 
