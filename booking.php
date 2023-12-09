@@ -62,9 +62,43 @@
 <?php include 'components/headder.php'?>
 <?php include ('dbconnection.php'); ?>
 <?php 
+ $cusid = "";
+ session_start();
+ $cusid = $_SESSION['id'];
         $sql = "SELECT * FROM maid WHERE id='$_GET[id]' ";
         $rs = $conn->query($sql);
 		$rws = $rs->fetch_assoc();
+
+$customer = "";
+$Phone = "";
+$uname = "";
+$pswd = "";
+$pswd1 = "";
+$mess= "";
+
+if (isset($_POST['submit'])){
+
+  $customer = $_POST['customer'];
+  $Phone = $_POST['Phone'];
+  $duration = $_POST['duration'];
+  $Address = $_POST['address'];
+  $date = date("Y/m/d") ;
+
+    $sql = "INSERT INTO booking (duration,customer_name,address,customer_phone,service,bookingdate,customer_id) VALUES ('$duration','$customer','$Address','$Phone','$_GET[id]','$date','$cusid' )";
+  
+    if (mysqli_query($conn, $sql)) {
+      echo "<script type = \"text/javascript\">
+            alert(\"Booking Successful..Please Make Payment\");
+            window.location = (\"payment.php\")
+            </script>";
+
+    } 
+    else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+  
+    }
+
 ?>
 
 <div class="container mt-5">
@@ -97,7 +131,12 @@
                         <option value="" selected disabled>-------------</option>
                         <option value="Hour">Hourly</option>
                         <option value="Month">Monthly</option>
-                    </select>
+                    </select><br><br>
+                    
+                    Start datetime: <br>
+                    <input type="datetime-local" name='Date'><br><br>
+
+
 <br><br>
                     <button type="submit" value="submit" name="submit" class="btn btn-warning">Book</button>
                 </form>

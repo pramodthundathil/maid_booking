@@ -140,12 +140,12 @@
                 
             </div>
             <div class="col-md-6">
-                <label for="">Company Name:</label>
+                <label for="">Maid Name:</label>
                 <input type="text" name="company" value="" required>
                 
             </div>
             <div class="col-md-6">
-                <label for="">Service Name:</label>
+                <label for="">Description:</label>
                 <input type="text" name="name" value="" required>   
             </div>
             <div class="col-md-6">

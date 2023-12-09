@@ -43,13 +43,14 @@
 <body>
     <?php include 'components/headder.php'?>
     <div class="container mt-5">
-    <h3 class="text-info text-center">All Services You Can Find Here</h3>
+    <h3 class="text-info text-center">Baby Sitter</h3>
 
         <div class="maidcontainer mt-3">
         <?php include ('dbconnection.php'); ?>
 
         <?php 
-                    $maids = "SELECT * FROM maid";
+                    $service = 'Baby Sitter';
+                    $maids = "SELECT * FROM maid WHERE Service = '$service' ";
                     $rs = $conn->query($maids);
 						    while($rws = $rs->fetch_assoc()){
         ?>

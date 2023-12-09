@@ -28,7 +28,7 @@ $firstname = "";
           <a class="nav-link" href="maids.php">maids</a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link">Bookings</a>
+            <a href="adminbookingview.php" class="nav-link">Bookings</a>
         </li>
         <li class="nav-item">
             <a href="" class="nav-link">Aprovels</a>

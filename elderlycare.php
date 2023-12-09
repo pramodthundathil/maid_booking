@@ -43,19 +43,20 @@
 <body>
     <?php include 'components/headder.php'?>
     <div class="container mt-5">
-    <h3 class="text-info text-center">All Services You Can Find Here</h3>
+    <h3 class="text-info text-center">Elderly Care</h3>
 
         <div class="maidcontainer mt-3">
         <?php include ('dbconnection.php'); ?>
 
         <?php 
-                    $maids = "SELECT * FROM maid";
+                    $service = 'Elderly Care';
+                    $maids = "SELECT * FROM maid WHERE Service = '$service' ";
                     $rs = $conn->query($maids);
 						    while($rws = $rs->fetch_assoc()){
         ?>
             <div class="maid-card mt-4">
                 <h5><?php echo $rws['Service']?></h5>
-                <p><span style="font-size:10px;">Maid Name: </span> <?php echo $rws['Company_name']?></p>
+                <p><span style="font-size:10px;">Made Name: </span> <?php echo $rws['Company_name']?></p>
                 <p><?php echo $rws['Service_Name']?></p>
 
                 <span >Hourly Rate:</span><span style="color:green"> ₹<?php echo $rws['Hourlyrate']?></span>

@@ -1,3 +1,5 @@
+<?php include ('dbconnection.php'); ?>
+
 <?php 
   $firstname = "";
   session_start();
@@ -9,6 +11,17 @@
            window.location = (\"login.php\")
            </script>";
   }
+?>
+<?php
+$search = "";
+
+if (isset($_POST['submit'])){
+
+  $search = $_POST['search'];
+  $sql = "SELECT * FROM maid WHERE Service LIKE '$search%' ";
+  $result = "";
+    $result = $conn->query($sql);
+}
 
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -23,7 +36,7 @@
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">My Bookings</a>
+          <a class="nav-link" href="mybooking.php">My Bookings</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="maidlist.php">All Maids</a>
@@ -41,10 +54,25 @@
         </li>
         
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex" role="search" method="POST">
+        <input class="form-control me-2" type="search" name='search' placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" value="submit" name="submit" >Search</button>
       </form>
     </div>
   </div>
 </nav>
+<div class="container">
+  <?php
+
+// if ($result->num_rows > 0){
+//   while($row = $result->fetch_assoc() ){
+//     echo $row["Service"]."  ".$row["Company_name"]."  ".$row["Rating"]."<br>";
+//   }
+//   } else {
+//     echo "0 records";
+//   }
+
+  ?>
+ 
+</div>
+

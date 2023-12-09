@@ -47,6 +47,8 @@ if (isset($_POST['submit'])){
 		$_SESSION['uname'] = $rows['username'];
 		$_SESSION['pswd'] = $rows['password'];
     $_SESSION['name'] = $rows['firstname'];
+    $_SESSION['id'] = $rows['id'];
+
 		echo "<script type = \"text/javascript\">
 					alert(\"Login Successful.................\");
 					window.location = (\"index.php\")

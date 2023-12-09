@@ -69,64 +69,9 @@
 <body>
   <?php include 'components/headder.php'?>
 
-  <div class="container mt-5">
-    <div class="content ">
-      <h4>Please Select Category</h4>
-      <div class="row mt-2">
-        <div class="col-md-6">
-          <a href="cleaningservice.php">
-            <div class="card-item">
-              <span class="material-symbols-outlined new">
-                cleaning_services
-              </span>
-              <br><br>
-              Cleaning Services
-            </div>
-          </a>
-        </div>
-        <div class="col-md-6">
-          <a href="babysitter.php">
-            <div class="card-item">
-              <span class="material-symbols-outlined new">
-                child_care
-              </span>
-              <br><br>
-              Baby Sitter
+  <div class="container mt-5 text-center">
+        <button class="btn btn-outline-warning btn-lg">Make Payment</button>
 
-            </div>
-          </a>
-
-        </div>
-        <div class="col-md-6">
-          <a href="elderlycare.php">
-            <div class="card-item">
-              <span class="material-symbols-outlined new">
-                elderly_woman
-              </span>
-              <br><br>
-              Elderly Care
-            </div>
-          </a>
-
-        </div>
-        <div class="col-md-6">
-          <a href="cooking.php">
-            <div class="card-item">
-              <span class="material-symbols-outlined new">
-                cooking
-              </span>
-              <br><br>
-              Cooking
-
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </div>
   </div>
 
-  <?php  include 'components/footer.php'?>
-</body>
-
-</html>
+<body>
