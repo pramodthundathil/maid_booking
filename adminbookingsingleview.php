@@ -17,7 +17,7 @@
     rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <title>Maid Booking System</title>
   <style>
       .content{
@@ -80,7 +80,7 @@
     $rws1 = $rs1->fetch_assoc();
     ?>
 <div class="container mt-5">
-    <h3 class="text-center">Single customer booking</h3>
+    <h3 class="text-center"><a href="adminbookingview.php"><i class="bi bi-arrow-left-circle-fill"></i> Back</a> <br><br> customer booking</h3>
     <div class="content">
     <div class="items">
 
@@ -98,7 +98,7 @@
         if($rws['status'] == false){
         ?>
         <span class="bagde bg-warning">pending</span>
-        <a href="approvebooking.php" class="btn btn-outline-success">Approve</a>
+        <!-- <a href="approvebooking.php" class="btn btn-outline-success">Approve</a> -->
         <?php
          }else{
         ?>

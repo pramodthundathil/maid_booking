@@ -75,7 +75,7 @@
             <tr>
                 <th>Customer</th>
                 <th>Booking Date</th>
-                <th>Duration</th>
+                <!-- <th>Duration</th> -->
                 <th>Maid</th>
                 <th>Action</th>
                 <th>Rating</th>
@@ -96,8 +96,11 @@
 ?>
             <tr>
                 <td><?php echo $rws['customer_name']?></td>
-                <td><?php echo $rws['bookingdate']  ?></td>
-                <td><?php echo $rws['duration']?> </td>
+                <td><?php $dateString = $rws['bookingdate'] ; // Sample date in YYYY-MM-DD format
+                        $dateTime = new DateTime($dateString);
+                        $formattedDate = $dateTime->format('d-m-Y'); // Format the date as DD-MM-YYYY
+                        echo $formattedDate;  ?></td>
+                <!-- <td><?php echo $rws['duration']?> </td> -->
 
                 <td>
 

@@ -97,7 +97,7 @@ if (isset($_POST['submit'])){
     if (mysqli_query($conn, $sql)) {
       echo "<script type = \"text/javascript\">
             alert(\"Booking Successful..Please Make Payment\");
-            window.location = (\"payment.php\")
+            window.location = (\"mybooking.php\")
             </script>";
 
     } 
@@ -131,7 +131,8 @@ if (isset($_POST['submit'])){
             <input type="hidden" value="<?php echo $rws['id']?>" name=service>
             <input type="text" name='customer' required><br><br>
             Phone: <br>
-            <input type="number" name='Phone'><br><br>
+            
+            <input type="tel"  pattern="[0-9]{10}" title="Please enter valid mobile number (India : 9xxxxxxxxxx, etc..)" required name='Phone'><br><br>
             Address: <br>
             <textarea rows="5" cols="50" name="address" required></textarea> <br><br>
             <!-- Duration Of service: <br>
@@ -141,7 +142,7 @@ if (isset($_POST['submit'])){
                         <option value="Month">Monthly</option>
                     </select><br><br> -->
 
-            Start datetime: <br>
+            Start Date: <br>
             <input type="date" id="datefield" name='Date' required><br><br>
 
             <br><br>

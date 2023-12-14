@@ -98,8 +98,8 @@
         <h4>Phone Number: <?php echo $rws['customer_phone']?> </h4>
         <h4>Approve Status:
         <span class="bagde bg-success">Approved</span>
-<br><br>
-        <a href="deletebooking.php?id=<?php echo $rws['id']?>" class="btn btn-outline-warning">Cancel Maid Service</a>
+        <br><br>
+        <a href="payment.php" class="btn btn-outline-warning">MakePayment</a>
         
         </h4>
 

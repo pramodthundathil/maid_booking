@@ -83,10 +83,10 @@
                 <tr>
                     <th>Maid Service</th>
                     <th>Service Name</th>
-                    <th>Company</th>
+                    <th>Maid Name</th>
                     <th>Location</th>
                     <th>Salary</th>
-                    <th>Delete</th>
+                    <th>Action</th>
                 </tr>
 
                 <?php 
@@ -103,6 +103,7 @@
                     <td>
                         <!-- <a href="" class="btn btn-outline-warning">View</a> -->
                         <a href="delelemaid.php?id=<?php echo $rws['id']?>" class="text-danger" style="font-size:20px;margin-left:10px;"><i class="bi bi-trash3-fill"></i></a>
+                        <a href="updatemaid.php?id=<?php echo $rws['id']?>" class="text-info" style="font-size:20px;margin-left:10px;"><i class="bi bi-pencil-square"></i></a>
                 
                 </td>
                 </tr>

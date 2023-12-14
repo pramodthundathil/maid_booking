@@ -15,9 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&family=Young+Serif&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
   <title>Made Boking System</title>
   <style>
     body {
@@ -36,8 +36,9 @@
       padding: 20px;
       box-sizing: border-box;
     }
-    .card-item{
-      width:95%;
+
+    .card-item {
+      width: 95%;
       padding: 10px;
       border: .5px solid gray;
       border-radius: 10px;
@@ -47,22 +48,25 @@
       margin-top: 20px;
       transition: all 1s;
     }
-    .card-item span {
-            color: green;
-            font-size: large;
-        }
 
-        .card-item .new {
-            font-size: 60px;
-            color: blueviolet
-        }
-        .content a{
-            text-decoration: none;
-            color: black;
-        }
-        .content a:hover .card-item{
-          transform: scale(1.05,1.05);
-        }
+    .card-item span {
+      color: green;
+      font-size: large;
+    }
+
+    .card-item .new {
+      font-size: 60px;
+      color: blueviolet
+    }
+
+    .content a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .content a:hover .card-item {
+      transform: scale(1.05, 1.05);
+    }
   </style>
 </head>
 
@@ -70,35 +74,29 @@
   <?php include 'components/headder.php'?>
 
   <div class="container mt-5 text-center">
-  <form id="checkout-selection" method="POST">
-        <input type="radio"  name="checkout" value="automatic">Automatic Checkout Demo<br>
-        <input type="radio"   name="checkout" value="orders">Manual Checkout Demo<br><br><br>
-        <input type="submit" class="btn btn-info" value="Make Payment">
+    <form id="checkout-selection" method="POST">
+      <div style="display:none">
+        <input type="radio" name="checkout" value="automatic">Automatic Checkout Demo<br>
+        <input type="radio"  name="checkout" value="orders">Manual Checkout Demo<br><br><br>
+      </div>
+      <input type="submit" class="btn btn-info" value="Make Payment">
     </form>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
-        jQuery(document).ready(function($) 
-        {
-            var form = $('#checkout-selection');
-            var radio = $('input[name="checkout"]');
-            var choice = '';
-
-            radio.change(function(e) 
-            {
-                choice = this.value;
-                if (choice === 'orders') 
-                {
-                    form.attr('action', 'pay.php?checkout=manual');
-                } 
-                else 
-                {
-                    form.attr('action', 'pay.php?checkout=automatic');
-                }
-            });
-        });
+      jQuery(document).ready(function($) {
+        var form = $('#checkout-selection');
+        var radio = $('input[name="checkout"]');
+        var choice = '';
+        
+          
+        form.attr('action', 'pay.php?checkout=manual');
+         
+            // form.attr('action', 'pay.php?checkout=automatic');
+        
+       
+      });
     </script>
-
 
   </div>
 
-<body>
+  <body>

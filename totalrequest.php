@@ -116,7 +116,7 @@
     </td>
     <td>
     <a href="adminbookingsingleview.php?id=<?php echo $rws['id']?>" class="btn btn-info btn-sm" >View</a>
-    <a href="approvebooking.php?id=<?php echo $rws['id']?>" class="btn btn-success btn-sm" >Approve</a>
+    <!-- <a href="approvebooking.php?id=<?php echo $rws['id']?>" class="btn btn-success btn-sm" >Approve</a> -->
 
       <a href="deletebookingadmin.php?id=<?php echo $rws['id']?>" class="btn btn-danger btn-sm" >delete</a>
 </td>

@@ -17,15 +17,18 @@
     rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <title>Maid Booking System</title>
   <style>
       .content{
-          width:80%;
+          width:70%;
           border: .5px solid gray;
           border-radius:10px;
           padding:10px;
           margin:auto;
+          display:flex;
+          justify-content:space-evenly;
+          padding:20px
           
       }
       .data{
@@ -50,7 +53,9 @@
       }
       .items{
           font-size:20px;
-            color:blue;
+            /* color:blue; */
+            border-right: .5px solid;
+            padding:30px;
       }
       .items .head{
           font-size:10px;
@@ -61,63 +66,49 @@
 <body>
 <?php include 'components/adminheadder.php'?>
 <?php include ('dbconnection.php'); ?>
-<div class="container mt-5">
-    <h4 class='text-center'>Customer Approved Bookings </h4> <br>
-<table class='table table-striped'>
-    <tr>
-    <th>Customer</th>
-    <th>Booking Date</th>
-    <th>Duration</th>
-    <th>Maid</th>
-    <th>Action</th>
-    
-    </tr>
 <?php 
  
 //  echo $cusid;
 
-    $sql = "SELECT * FROM booking";
+    $sql = "SELECT * FROM booking WHERE id=$_GET[id]";
     $rs = $conn->query($sql);
-    while($rws = $rs->fetch_assoc())
-    {
-     if($rws["status"] == true)   {
+    $rws = $rs->fetch_assoc();
+    $srid = "";
+    $srid = $rws['service'];
+    $sql1 = "SELECT * FROM maid WHERE id=$srid";
+    $rs1 = $conn->query($sql1);
+    $rws1 = $rs1->fetch_assoc();
+    ?>
+<div class="container mt-5">
+    <h3 class="text-center"><a href="approvedbookings.php"><i class="bi bi-arrow-left-circle-fill"></i> Back</a> <br><br> customer booking</h3>
+    <div class="content">
+    <div class="items">
 
-?>
-<tr>
-    <td><?php echo $rws['customer_name']?></td>
-    <td><?php echo $rws['bookingdate'], $rws['service'] ?></td>
-    <td><?php echo $rws['duration']?></td>
-    
-    <td>
+        <h3>Booked Maid: <?php echo $rws1['Company_name']?></h3>
+        <h3>Booked Date: <?php echo $rws['bookingdate']?></h3>
+        <h2>Customer Name: <?php echo $rws['customer_name']?></h2>
+        <!-- <h2>Customer Name: <?php echo $rws['customer_name']?></h2> -->
 
+        </div>
+    <div class="items">
+        <h4>Address: <?php echo $rws['address']?> </h4>
+        <h4>Phone Number: <?php echo $rws['customer_phone']?> </h4>
+        <h4>Approve Status:
         <?php 
-        $ser_id = $rws['service'];
-        echo $ser_id;
-        $sql1 = "SELECT * FROM maid WHERE id='$ser_id'";
-        $rs1 = $conn->query($sql1);
-        while($rws1 = $rs1->fetch_assoc()){
+        if($rws['status'] == false){
         ?>
-       <?php 
-       echo $rws1['Service'] ?>
-         <?php
-         }
+        <span class="bagde bg-warning">pending</span>
+        <!-- <a href="approvebooking.php" class="btn btn-outline-success">Approve</a> -->
+        <?php
+         }else{
         ?>
-        Maid service
-    </td>
-    <td>
-    <a href="adminsingleview1.php?id=<?php echo $rws['id']?>" class="btn btn-info btn-sm" >View</a>
-    <!-- <a href="adminbookingsingleview.php?id=<?php echo $rws['id']?>" class="btn btn-success btn-sm" >Approve</a> -->
+        <span class="bagde bg-success">Approved</span>
+        <?php }?>
+        </h4>
 
-      <a href="deletebookingadmin.php?id=<?php echo $rws['id']?>" class="btn btn-danger btn-sm" >delete</a>
-</td>
-    
-</tr>
-
-
-<?php }}
-?>
-
-
-</table>
     </div>
-    <?php include 'components/footer.php'?>
+
+    </div>
+</div>
+    </body>
+    </html>
