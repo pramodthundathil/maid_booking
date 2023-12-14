@@ -61,16 +61,28 @@
 
                 <span >Hourly Rate:</span><span style="color:green"> ₹<?php echo $rws['Hourlyrate']?></span>
                 <br>
-                <br>
-                <span>Monthly Rate:</span><span style="color:green"> ₹<?php echo $rws['monthlyrate']?></span>
+                <!-- <br>
+                <span>Monthly Rate:</span><span style="color:green"> ₹<?php echo $rws['monthlyrate']?></span> -->
 
-                <br><br>
-                <a href="booking.php?id=<?php echo $rws['id']?>" class="btn btn-warning btn-full">Book Now</a>
+                <!-- <br><br> -->
+                <span>Location: <?php echo $rws['location']?></span><br>
+
+<?php 
+if ($rws["totalrater"] == 0){
+?>
+<span>Rating:  <i class="bi bi-star text-warning" style="font-size:larger"> <?php echo $rws["Rating"] ?> /5 </i></span>
+<?php 
+}else{?>
+<span>Rating: <i class="bi bi-star text-warning" style="font-size:larger"> <?php echo $rws["Rating"]/ $rws["totalrater"] ?>  /5 </i></span>
+<?php }?>
+<br><br>
+<a href="booking.php?id=<?php echo $rws['id']?>" class="btn btn-warning btn-full">Book Now</a>
+
+</div>
+<?php
+}
+?>
                 
-            </div>
-            <?php
-            }
-            ?>
             
         </div>
     </div>

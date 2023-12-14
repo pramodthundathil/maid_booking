@@ -52,10 +52,10 @@
             $service = $_POST['service'];
             $company = $_POST['company'];
             $service_name = $_POST['name'];
-            $hourly_rate = $_POST['h_rate'];
+            $hourly_rate = $_POST['loc'];
             $monthly_rate = $_POST['m_rate'];
             
-            $sql = "INSERT INTO maid (Service, Hourlyrate, monthlyrate, Availability, Service_Name, Company_name) VALUES ('$service', '$hourly_rate', '$monthly_rate', '$availablity', '$service_name', '$company')";
+            $sql = "INSERT INTO maid (Service, location, monthlyrate, Availability, Service_Name, Company_name) VALUES ('$service', '$hourly_rate', '$monthly_rate', '$availablity', '$service_name', '$company')";
 
 
             if (mysqli_query($conn, $sql)) {
@@ -84,9 +84,9 @@
                     <th>Maid Service</th>
                     <th>Service Name</th>
                     <th>Company</th>
-                    <th>Hourly Rate</th>
-                    <th>Monthly Rate</th>
-                    <th>View</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Delete</th>
                 </tr>
 
                 <?php 
@@ -98,10 +98,10 @@
                     <td><?php echo $rws['Service']?></td>
                     <td><?php echo $rws['Service_Name']?></td>
                     <td><?php echo $rws['Company_name']?></td>
-                    <td>₹<?php echo $rws['Hourlyrate']?></td>
+                    <td><?php echo $rws['location']?></td>
                     <td>₹<?php echo $rws['monthlyrate']?></td>
                     <td>
-                        <a href="" class="btn btn-outline-warning">View</a>
+                        <!-- <a href="" class="btn btn-outline-warning">View</a> -->
                         <a href="delelemaid.php?id=<?php echo $rws['id']?>" class="text-danger" style="font-size:20px;margin-left:10px;"><i class="bi bi-trash3-fill"></i></a>
                 
                 </td>
@@ -149,11 +149,11 @@
                 <input type="text" name="name" value="" required>   
             </div>
             <div class="col-md-6">
-                <label for="">Hourly Rate:</label>
-                <input type="number" name="h_rate" value="" required>
+                <label for="">Location:</label>
+                <input type="text" name="loc" value="" required>
             </div>
             <div class="col-md-6">
-            <label for="">Monthly Rate:</label>
+            <label for="">Salary:</label>
                 <input type="number" name="m_rate" value="" required>
             </div>
             

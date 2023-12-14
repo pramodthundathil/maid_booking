@@ -3,6 +3,6 @@
    session_destroy(); //destroy the session
    echo "<script type = \"text/javascript\">
            alert(\"you logged out...\");
-           window.location = (\"login.php\")
+           window.location = (\"frontpage.php\")
            </script>";
 ?>

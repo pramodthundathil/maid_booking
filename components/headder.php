@@ -8,22 +8,11 @@
   if ($_SESSION == null){
     echo "<script type = \"text/javascript\">
            alert(\"Please Login To Continue..\");
-           window.location = (\"login.php\")
+           window.location = (\"frontpage.php\")
            </script>";
   }
 ?>
-<?php
-$search = "";
 
-if (isset($_POST['submit'])){
-
-  $search = $_POST['search'];
-  $sql = "SELECT * FROM maid WHERE Service LIKE '$search%' ";
-  $result = "";
-    $result = $conn->query($sql);
-}
-
-?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Maid</a>
@@ -54,7 +43,7 @@ if (isset($_POST['submit'])){
         </li>
         
       </ul>
-      <form class="d-flex" role="search" method="POST">
+      <form class="d-flex" role="search" action="searchresult.php" method="POST">
         <input class="form-control me-2" type="search" name='search' placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit" value="submit" name="submit" >Search</button>
       </form>

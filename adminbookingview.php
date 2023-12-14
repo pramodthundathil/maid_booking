@@ -80,7 +80,7 @@
     $rs = $conn->query($sql);
     while($rws = $rs->fetch_assoc())
     {
-        
+     if($rws["status"] == false)   {
 
 ?>
 <tr>
@@ -93,7 +93,7 @@
         <?php 
         $ser_id = $rws['service'];
         echo $ser_id;
-        $sql1 = "SELECT * FROM maid";
+        $sql1 = "SELECT * FROM maid WHERE id='$ser_id'";
         $rs1 = $conn->query($sql1);
         while($rws1 = $rs1->fetch_assoc()){
         ?>
@@ -104,13 +104,17 @@
         ?>
         Maid service
     </td>
-    <td><a href="deletebooking.php?id=<?php echo $rws['id']?>" class="btn btn-danger btn-sm" >delete</a>
+    <td>
+    <a href="adminbookingsingleview.php?id=<?php echo $rws['id']?>" class="btn btn-info btn-sm" >View</a>
+    <a href="approvebooking.php?id=<?php echo $rws['id']?>" class="btn btn-success btn-sm" >Approve</a>
+
+      <a href="deletebookingadmin.php?id=<?php echo $rws['id']?>" class="btn btn-danger btn-sm" >delete</a>
 </td>
     
 </tr>
 
 
-<?php }
+<?php }}
 ?>
 
 

@@ -7,7 +7,7 @@ $firstname = "";
   if ($_SESSION == null){
     echo "<script type = \"text/javascript\">
            alert(\"Please Login To Continue..\");
-           window.location = (\"login.php\")
+           window.location = (\"frontpage.php\")
            </script>";
   }
 
@@ -31,7 +31,7 @@ $firstname = "";
             <a href="adminbookingview.php" class="nav-link">Bookings</a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link">Aprovels</a>
+            <a href="approvedbookings.php" class="nav-link">Aprovels</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

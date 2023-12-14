@@ -58,37 +58,74 @@
     <?php 
     include 'components/adminheadder.php'
     ?>
+    <?php include ('dbconnection.php'); ?>
+
+    <?php 
+    $len = "";
+    $len1 = "";
+    $len2 = "";
+    $len3 = "";
+    $sql = "SELECT * FROM maid";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        $rowCount = mysqli_num_rows($result);
+        $len =  $rowCount;
+    }
+
+    $sql1 = "SELECT * FROM booking";
+    $result1 = mysqli_query($conn, $sql1);
+    if ($result1) {
+        $rowCount = mysqli_num_rows($result1);
+        $len1 =  $rowCount;
+    }
+
+    $sql2 = "SELECT * FROM booking WHERE status=0";
+    $result2 = mysqli_query($conn, $sql2);
+    if ($result2) {
+        $rowCount = mysqli_num_rows($result2);
+        $len2 =  $rowCount;
+    }
+
+    $sql3 = "SELECT * FROM booking WHERE status=1";
+    $result3 = mysqli_query($conn, $sql3);
+    if ($result3) {
+        $rowCount = mysqli_num_rows($result3);
+        $len3 =  $rowCount;
+    }
+    
+    ?>
+
 
     <div class="container mt-5">
         <div class="itemcontainer">
             <div class="card-item">
                 <h6>Total Maids</h6>
-                <span>100</span>
+                <span><?php echo $len ?></span>
                 <br><br>
-                <a class="btn btn-outline-primary" href="maids.php">View</a>
+                <a href="maids.php" class="btn btn-outline-primary" href="maids.php">View</a>
             </div>
             <div class="card-item">
                 <h6>Total Requests</h6>
-                <span>20</span>
+                <span><?php echo $len1 ?></span>
                 <br><br>
-                <a class="btn btn-outline-info" href="">View</a>
+                <a href="totalrequest.php" class="btn btn-outline-info" href="">View</a>
 
             </div>
             <div class="card-item">
                 <h6>Pending Requests</h6>
-                <span>10</span>
+                <span><?php echo $len2 ?></span>
                 <br><br>
-                <a class="btn btn-outline-dark" href="">View</a>
+                <a href="adminbookingview.php" class="btn btn-outline-dark" href="">View</a>
             </div>
             <div class="card-item">
                 <h6>Approved</h6>
-                <span>10</span>
+                <span><?php echo $len3 ?></span>
                 <br><br>
-                <a class="btn btn-outline-warning" href="">View</a>
+                <a href="approvedbookings.php" class="btn btn-outline-warning" href="">View</a>
             </div>
         </div>
     </div>
-
+<h4 class="text-center mt-5">Our Services</h4>
     <div class="container mt-5">
         <div class="maids itemcontainer">
             <a href="">

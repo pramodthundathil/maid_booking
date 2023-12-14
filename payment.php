@@ -70,7 +70,34 @@
   <?php include 'components/headder.php'?>
 
   <div class="container mt-5 text-center">
-        <button class="btn btn-outline-warning btn-lg">Make Payment</button>
+  <form id="checkout-selection" method="POST">
+        <input type="radio"  name="checkout" value="automatic">Automatic Checkout Demo<br>
+        <input type="radio"   name="checkout" value="orders">Manual Checkout Demo<br><br><br>
+        <input type="submit" class="btn btn-info" value="Make Payment">
+    </form>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        jQuery(document).ready(function($) 
+        {
+            var form = $('#checkout-selection');
+            var radio = $('input[name="checkout"]');
+            var choice = '';
+
+            radio.change(function(e) 
+            {
+                choice = this.value;
+                if (choice === 'orders') 
+                {
+                    form.attr('action', 'pay.php?checkout=manual');
+                } 
+                else 
+                {
+                    form.attr('action', 'pay.php?checkout=automatic');
+                }
+            });
+        });
+    </script>
+
 
   </div>
 
