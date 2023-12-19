@@ -66,8 +66,8 @@ if (isset($_POST['submit'])){
         <h3>Login</h3>
         <span style="color:red"><?php print $msg; ?></span>
         <form method="post">
-            <input type="text" name="uname" placeholder="Username">
-            <input type="password" name="pswd" placeholder="Password">
+            <input type="text" name="uname" required placeholder="Username">
+            <input type="password" name="pswd" required placeholder="Password">
             <br><br>
             <input class="button" value="submit" name="submit" type="submit"></input>
         </form>

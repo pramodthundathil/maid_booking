@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 09, 2023 at 08:04 AM
+-- Generation Time: Dec 14, 2023 at 12:00 PM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -54,17 +54,20 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `status` tinyint(1) NOT NULL,
   `duration` varchar(255) NOT NULL,
   `bookingdate` date NOT NULL,
-  `customer_id` int(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `customer_id` int(255) NOT NULL,
+  `rated` varchar(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id`, `service`, `customer_name`, `customer_phone`, `address`, `status`, `duration`, `bookingdate`, `customer_id`) VALUES
-(2, 2, 'pramod', 2147483647, 'thundathil', 0, 'Month', '2023-12-05', 1),
-(3, 3, 'test', 2147483647, 'hei', 0, 'Month', '2023-12-05', 1),
-(5, 2, 'few', 2147483647, 'VLANJAMBALAM', 0, 'Month', '2023-12-09', 9);
+INSERT INTO `booking` (`id`, `service`, `customer_name`, `customer_phone`, `address`, `status`, `duration`, `bookingdate`, `customer_id`, `rated`) VALUES
+(8, 2, 'LNDMARK BULDING', 2147483647, 'VLANJAMBALAM', 1, 'Hour', '2023-12-13', 9, '5'),
+(10, 4, 'LNDMARK BULDING', 2147483647, 'VLANJAMBALAM', 1, '', '2023-12-14', 9, '4'),
+(14, 6, 'test 5', 2147483647, 'VLANJAMBALAM', 1, '', '2023-12-14', 9, '4'),
+(15, 3, 'LNDMARK BULDING', 2147483647, 'VLANJAMBALAM', 1, '', '2023-12-14', 9, '0'),
+(16, 4, 'test 4', 2147483647, 'VLANJAMBALAM', 1, '', '2023-12-14', 9, '0');
 
 -- --------------------------------------------------------
 
@@ -81,18 +84,19 @@ CREATE TABLE IF NOT EXISTS `maid` (
   `Service_Name` varchar(255) NOT NULL,
   `Company_name` varchar(255) NOT NULL,
   `Rating` int(20) NOT NULL,
-  `totalrater` int(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `totalrater` int(20) NOT NULL,
+  `location` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `maid`
 --
 
-INSERT INTO `maid` (`id`, `Service`, `Hourlyrate`, `monthlyrate`, `Availability`, `Service_Name`, `Company_name`, `Rating`, `totalrater`) VALUES
-(2, 'Baby Sitter', 123, 12098, 1, 'Whats', 'Hire me', 0, 0),
-(3, 'Elderly Care', 123, 100000, 1, 'Old age', 'new Hire', 0, 0),
-(4, 'Cleaning Service', 100, 12000, 1, 'jgdjgdsfs', 'Test', 0, 0),
-(5, 'Cleaning Service', 2000, 1002, 1, 'skjsga', 'test 2', 0, 0);
+INSERT INTO `maid` (`id`, `Service`, `Hourlyrate`, `monthlyrate`, `Availability`, `Service_Name`, `Company_name`, `Rating`, `totalrater`, `location`) VALUES
+(2, 'Cleaning Service', 123, 12098, 1, 'Hellooooo', 'Hire me', 5, 1, 'Kochi'),
+(3, 'Elderly Care', 123, 100000, 1, 'Old age', 'new Hire', 8, 2, ''),
+(4, 'Cleaning Service', 100, 12000, 1, 'jgdjgdsfs', 'Test', 4, 1, 'Kollam'),
+(5, 'Cleaning Service', 2000, 1002, 1, 'skjsga', 'test 2', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -177,12 +181,12 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `maid`
 --
 ALTER TABLE `maid`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `Rating`
 --

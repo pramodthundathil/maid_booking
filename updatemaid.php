@@ -72,7 +72,8 @@
 
             if (mysqli_query($conn, $sql)) {
                 echo "<script type = \"text/javascript\">
-                      alert(\"Maid Added success\");
+                      alert(\"Maid Updated success\");
+                      window.location = \"maids.php\";
                       </script>";
           
               } 

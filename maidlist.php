@@ -71,7 +71,7 @@
                   <?php 
                   }else{?>
                   <span>Rating: <i class="bi bi-star text-warning" style="font-size:larger"> <?php echo $rws["Rating"]/ $rws["totalrater"] ?>  /5 </i></span>
-<?php }?>
+                  <?php }?>
                 <br><br>
                 <a href="booking.php?id=<?php echo $rws['id']?>" class="btn btn-warning btn-full">Book Now</a>
                 

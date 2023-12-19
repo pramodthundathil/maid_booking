@@ -89,12 +89,24 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="images/maid_cr1.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block" >
+        <h1 class=' display-1' style="margin-top:-300px !important;color:#5B19E8;">Welcome to Maid Booking Platform</h1>
+        <!-- <p class="text-dark" style='font-size:20px;'>"Simplify your life with just a click! Book your maid hassle-free."</p> -->
+      </div>
     </div>
     <div class="carousel-item">
       <img src="images/Elcare_car.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block" >
+        <!-- <h1 class='text-primary display-1' style="margin-top:-300px !important">Welcome to Maid Booking Platform</h1> -->
+        <!-- <p class="text-dark" style='font-size:20px;'>"Simplify your life with just a click! Book your maid hassle-free."</p> -->
+      </div>
     </div>
     <div class="carousel-item">
       <img src="images/babysitter_car.webp" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block" >
+        <!-- <h1 class='text-primary display-1' style="margin-top:-300px !important">Welcome to Maid Booking Platform</h1> -->
+        <!-- <p class="text-dark" style='font-size:20px;'>"Simplify your life with just a click! Book your maid hassle-free."</p> -->
+      </div>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -112,6 +124,9 @@
     <p>Welcome to MAID BOOKING, a convenient platform designed to simplify the process of booking maid services.</p>
     <P>At MAID BOOKING, we aim to provide a seamless and efficient experience for users seeking reliable and professional maid services. Our platform connects customers with skilled and vetted maids, offering a range of services tailored to meet your household needs.</P>
     </div>
+</div>
+<div class="comtainer-fluid mt-5">
+
 </div>
 
 <?php  include 'components/footer.php'?>
