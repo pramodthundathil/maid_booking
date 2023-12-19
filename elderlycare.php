@@ -56,16 +56,13 @@
         ?>
             <div class="maid-card mt-4">
                 <h5><?php echo $rws['Service']?></h5>
-                <p><span style="font-size:10px;">Made Name: </span> <?php echo $rws['Company_name']?></p>
+                <p><span style="font-size:10px;">Maid Name: </span> <?php echo $rws['Company_name']?></p>
                 <p><?php echo $rws['Service_Name']?></p>
-
-                <span >Hourly Rate:</span><span style="color:green"> ₹<?php echo $rws['Hourlyrate']?></span>
-                <br>
-                <!-- <br>
-                <span>Monthly Rate:</span><span style="color:green"> ₹<?php echo $rws['monthlyrate']?></span>
-
-                <br><br> -->
-                <span>Location: <?php echo $rws['location']?></span> <br>
+                <!-- <span >Hourly Rate:</span><span style="color:green"> ₹<?php echo $rws['Hourlyrate']?></span> -->
+              
+                <span>Salary:</span><span style="color:green"> ₹<?php echo $rws['monthlyrate']?></span>
+                  <br>
+                <span>Location: <?php echo $rws['location']?></span><br>
 
                   <?php 
                   if ($rws["totalrater"] == 0){
@@ -74,7 +71,8 @@
                   <?php 
                   }else{?>
                   <span>Rating: <i class="bi bi-star text-warning" style="font-size:larger"> <?php echo $rws["Rating"]/ $rws["totalrater"] ?>  /5 </i></span>
-<?php }?>
+                  <?php }?>
+                <br><br>
                 <a href="booking.php?id=<?php echo $rws['id']?>" class="btn btn-warning btn-full">Book Now</a>
                 
             </div>

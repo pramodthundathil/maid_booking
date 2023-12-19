@@ -15,78 +15,79 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&family=Young+Serif&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
   <title>Made Boking System</title>
   <style>
-      .maid-card{
-          width:250px;
-          height:300px;
-          border:.5px solid gray;
-          border-radius:10px;
-          padding:10px;
+    .maid-card {
+      width: 250px;
+      height: 300px;
+      border: .5px solid gray;
+      border-radius: 10px;
+      padding: 10px;
 
-      }
-      .maid-card h5{
-        text-align:center;
-        color:blueviolet;
-      }
-      .maidcontainer{
-        display:flex;
-        justify-content:space-evenly;
-        flex-wrap:wrap;
-        align-items:center;
-      }
+    }
+
+    .maid-card h5 {
+      text-align: center;
+      color: blueviolet;
+    }
+
+    .maidcontainer {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      align-items: center;
+    }
   </style>
 </head>
+
 <body>
-    <?php include 'components/headder.php'?>
-    <div class="container mt-5">
+  <?php include 'components/headder.php'?>
+  <div class="container mt-5">
     <h3 class="text-info text-center">Baby Sitter</h3>
 
-        <div class="maidcontainer mt-3">
-        <?php include ('dbconnection.php'); ?>
+    <div class="maidcontainer mt-3">
+      <?php include ('dbconnection.php'); ?>
 
-        <?php 
+      <?php 
                     $service = 'Baby Sitter';
                     $maids = "SELECT * FROM maid WHERE Service = '$service' ";
                     $rs = $conn->query($maids);
 						    while($rws = $rs->fetch_assoc()){
         ?>
-            <div class="maid-card mt-4">
+      <div class="maid-card mt-4">
                 <h5><?php echo $rws['Service']?></h5>
                 <p><span style="font-size:10px;">Maid Name: </span> <?php echo $rws['Company_name']?></p>
                 <p><?php echo $rws['Service_Name']?></p>
-
-                <span >Hourly Rate:</span><span style="color:green"> ₹<?php echo $rws['Hourlyrate']?></span>
-                <br>
+                <!-- <span >Hourly Rate:</span><span style="color:green"> ₹<?php echo $rws['Hourlyrate']?></span> -->
+              
+                <span>Salary:</span><span style="color:green"> ₹<?php echo $rws['monthlyrate']?></span>
+                  <br>
                 <span>Location: <?php echo $rws['location']?></span><br>
 
-<?php 
-if ($rws["totalrater"] == 0){
-?>
-<span>Rating:  <i class="bi bi-star text-warning" style="font-size:larger"> <?php echo $rws["Rating"] ?> /5 </i></span>
-<?php 
-}else{?>
-<span>Rating: <i class="bi bi-star text-warning" style="font-size:larger"> <?php echo $rws["Rating"]/ $rws["totalrater"] ?>  /5 </i></span>
-<?php }?>
-<br><br>
-<a href="booking.php?id=<?php echo $rws['id']?>" class="btn btn-warning btn-full">Book Now</a>
+                  <?php 
+                  if ($rws["totalrater"] == 0){
+                  ?>
+                  <span>Rating:  <i class="bi bi-star text-warning" style="font-size:larger"> <?php echo $rws["Rating"] ?> /5 </i></span>
+                  <?php 
+                  }else{?>
+                  <span>Rating: <i class="bi bi-star text-warning" style="font-size:larger"> <?php echo $rws["Rating"]/ $rws["totalrater"] ?>  /5 </i></span>
+                  <?php }?>
+                <br><br>
+                <a href="booking.php?id=<?php echo $rws['id']?>" class="btn btn-warning btn-full">Book Now</a>
+                
+            </div>
+      <?php
+                }
+                ?>
 
-</div>
-<?php
-}
-?>
-            
-        </div>
     </div>
+  </div>
 
-    
+  <?php include 'components/footer.php'?>
 
-
-    <?php include 'components/footer.php'?>
-
-    
 </body>
+
 </html>

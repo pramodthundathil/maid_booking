@@ -116,7 +116,7 @@
                     <?php
          }
         ?>
-            Maid service
+            <!-- Maid service  -->
             
                 </td>
                 <?php 

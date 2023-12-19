@@ -67,7 +67,7 @@
     <tr>
     <th>Customer</th>
     <th>Booking Date</th>
-    <th>Duration</th>
+    <!-- <th>Duration</th> -->
     <th>Maid</th>
     <th>Status</th>
     <th>Action</th>
@@ -86,14 +86,17 @@
 ?>
 <tr>
     <td><?php echo $rws['customer_name']?></td>
-    <td><?php echo $rws['bookingdate'], $rws['service'] ?></td>
-    <td><?php echo $rws['duration']?></td>
+    <td><?php $dateString = $rws['bookingdate'] ; // Sample date in YYYY-MM-DD format
+                        $dateTime = new DateTime($dateString);
+                        $formattedDate = $dateTime->format('d-m-Y'); // Format the date as DD-MM-YYYY
+                        echo $formattedDate;  ?></td>
+    <!-- <td><?php echo $rws['duration']?></td> -->
     
     <td>
 
         <?php 
         $ser_id = $rws['service'];
-        echo $ser_id;
+        // echo $ser_id;
         $sql1 = "SELECT * FROM maid WHERE id='$ser_id'";
         $rs1 = $conn->query($sql1);
         while($rws1 = $rs1->fetch_assoc()){
@@ -103,7 +106,7 @@
          <?php
          }
         ?>
-        Maid service
+        <!-- Maid service -->
     </td>
 
     <td>
