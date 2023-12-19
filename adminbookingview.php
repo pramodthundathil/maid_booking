@@ -96,7 +96,7 @@
 
         <?php 
         $ser_id = $rws['service'];
-        echo $ser_id;
+        // echo $ser_id;
         $sql1 = "SELECT * FROM maid WHERE id='$ser_id'";
         $rs1 = $conn->query($sql1);
         while($rws1 = $rs1->fetch_assoc()){
@@ -106,7 +106,7 @@
          <?php
          }
         ?>
-        Maid service
+        <!-- Maid service -->
     </td>
     <td>
     <a href="adminbookingsingleview.php?id=<?php echo $rws['id']?>" class="btn btn-info btn-sm" >View</a>
