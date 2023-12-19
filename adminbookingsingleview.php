@@ -85,7 +85,10 @@
     <div class="items">
 
         <h3>Booked Maid: <?php echo $rws1['Company_name']?></h3>
-        <h3>Booked Date: <?php echo $rws['bookingdate']?></h3>
+        <h3>Booked Date: <?php $dateString = $rws['bookingdate'] ; // Sample date in YYYY-MM-DD format
+              $dateTime = new DateTime($dateString);
+              $formattedDate = $dateTime->format('d-m-Y'); // Format the date as DD-MM-YYYY
+              echo $formattedDate; ?></h3>
         <h2>Customer Name: <?php echo $rws['customer_name']?></h2>
         <!-- <h2>Customer Name: <?php echo $rws['customer_name']?></h2> -->
 

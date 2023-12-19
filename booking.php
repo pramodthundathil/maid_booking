@@ -78,7 +78,7 @@
 		$rws = $rs->fetch_assoc();
 
 $customer = "";
-$Phone = "";
+$Phonenum = "";
 $uname = "";
 $pswd = "";
 $pswd1 = "";
@@ -87,12 +87,12 @@ $mess= "";
 if (isset($_POST['submit'])){
 
   $customer = $_POST['customer'];
-  $Phone = $_POST['Phone'];
+  $Phonenum = $_POST['Phonenum'];
   $duration = $_POST['duration'];
   $Address = $_POST['address'];
   $date = date("Y/m/d") ;
 
-    $sql = "INSERT INTO booking (duration,customer_name,address,customer_phone,service,bookingdate,customer_id) VALUES ('$duration','$customer','$Address','$Phone','$_GET[id]','$date','$cusid' )";
+    $sql = "INSERT INTO booking (duration,customer_name,address,customer_phone,service,bookingdate,customer_id) VALUES ('$duration','$customer','$Address','$Phonenum','$_GET[id]','$date','$cusid' )";
   
     if (mysqli_query($conn, $sql)) {
       echo "<script type = \"text/javascript\">
@@ -132,7 +132,7 @@ if (isset($_POST['submit'])){
             <input type="text" name='customer' required><br><br>
             Phone: <br>
             
-            <input type="tel"  pattern="[0-9]{10}" title="Please enter valid mobile number (India : 9xxxxxxxxxx, etc..)" required name='Phone'><br><br>
+            <input type="tel"  pattern="[0-9]{10}" title="Please enter valid mobile number (India : 9xxxxxxxxxx, etc..)" required name='Phonenum'><br><br>
             Address: <br>
             <textarea rows="5" cols="50" name="address" required></textarea> <br><br>
             <!-- Duration Of service: <br>
